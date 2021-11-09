@@ -1,0 +1,11 @@
+[
+  {
+    "name": "name",
+    "brand": "brand",
+    "season": "season",
+    "like": "num of the likes",
+    "tags": ["tag1", "tag2"],
+    "price": "price",
+    "images": ["img1 url", "img2 url"]
+  }
+]
