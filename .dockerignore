@@ -1,0 +1,6 @@
+venv
+output
+crawler.env
+chromedriver
+__pycache__
+.idea

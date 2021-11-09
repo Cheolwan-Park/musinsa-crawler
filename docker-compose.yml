@@ -1,0 +1,26 @@
+version: "3.9"
+
+networks:
+    web:
+      driver:  bridge
+
+services:
+  chrome:
+    image: selenium/standalone-chrome:latest
+    hostname: chrome
+    networks:
+      - web
+    privileged: true
+    shm_size: 2g
+
+  crawler:
+    build: .
+    depends_on:
+      - chrome
+    entrypoint: sh ./entry.sh
+    networks:
+      - web
+    volumes:
+      - ./output:/crawler/output
+    env_file:
+      - crawler.env
