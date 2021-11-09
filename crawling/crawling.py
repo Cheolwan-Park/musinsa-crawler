@@ -94,7 +94,7 @@ def crawl_musinsa_category(driver: WebDriver, category: str, start_page: int, ru
         current_url = driver.current_url
         links = get_musinsa_item_links(driver)
         result = []
-        for link in links[:10]:
+        for link in links:
             time.sleep(delay)
             result.append(crawl_musinsa_item_page(driver, link))
 
