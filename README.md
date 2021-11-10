@@ -9,3 +9,6 @@
 ```
 docker-compose up (--abort-on-container-exit)
 ```
+### RUN in windows
+1. start 'Docker Desktop' (dl link: https://hub.docker.com/editions/community/docker-ce-desktop-windows)
+2. execute 'run-crawler.bat' in project directory (click it or execute via shell)
