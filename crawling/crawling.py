@@ -81,7 +81,6 @@ def crawl_musinsa_category(driver: WebDriver, category: str, start_page: int, ru
     category_url = category2url[category]
 
     driver.implicitly_wait(time_to_wait=5.0)
-    wait = WebDriverWait(driver, 10)
 
     for it in range(running_iteration):
         driver.get(url=category_url)
@@ -91,7 +90,6 @@ def crawl_musinsa_category(driver: WebDriver, category: str, start_page: int, ru
         if len(elems) != 0:
             print(f'there is no page#{start_page+it}')
             break
-        current_url = driver.current_url
         links = get_musinsa_item_links(driver)
         result = []
         for link in links:
@@ -101,5 +99,7 @@ def crawl_musinsa_category(driver: WebDriver, category: str, start_page: int, ru
         time.sleep(delay)
         with open(f'{save_dir}/data_{category}_{start_page + it}.json', 'w', encoding='utf-8') as f:
             f.write(json.dumps(result, ensure_ascii=False))
+
+        print(f'page {start_page + it} complete!')
 
     driver.close()

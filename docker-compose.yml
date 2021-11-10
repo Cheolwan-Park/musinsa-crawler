@@ -17,7 +17,12 @@ services:
     build: .
     depends_on:
       - chrome
-    entrypoint: sh ./entry.sh
+    command:
+      - sh
+      - -c
+      - |
+        ./wait-for-it.sh chrome:4444 -t 10
+        python -m musinsa_crawler
     networks:
       - web
     volumes:
