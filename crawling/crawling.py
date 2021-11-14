@@ -97,7 +97,7 @@ def crawl_musinsa_category(driver: WebDriver, category: str, start_page: int, ru
             result.append(crawl_musinsa_item_page(driver, link))
 
         time.sleep(delay)
-        with open(f'{save_dir}/data_{category}_{start_page + it}.json', 'w', encoding='utf-8') as f:
+        with open(f'{save_dir}/data_{category.replace("/", "_")}_{start_page + it}.json', 'w', encoding='utf-8') as f:
             f.write(json.dumps(result, ensure_ascii=False))
 
         print(f'page {start_page + it} complete!')
